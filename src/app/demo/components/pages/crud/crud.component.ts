@@ -3,6 +3,7 @@ import { Client } from '../../../api/client';
 import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { ClientService } from '../../../service/client.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     templateUrl: './crud.component.html',
@@ -32,7 +33,7 @@ export class CrudComponent implements OnInit, OnDestroy {
 
     rowsPerPageOptions = [5, 10, 20];
 
-    constructor(private clientService: ClientService, private messageService: MessageService) { }
+    constructor(private clientService: ClientService, private messageService: MessageService, private http : HttpClient) { }
 
     ngOnInit() {
 
@@ -66,6 +67,26 @@ export class CrudComponent implements OnInit, OnDestroy {
         this.submitted = false;
         this.clientDialog = true;
     }
+
+    getAdress(cep : string) {
+        if (cep.length > 1) { // Verifica se o CEP está completo (com todos os caracteres)
+            this.http.get<any>(`https://viacep.com.br/ws/${cep}/json/`)
+              .subscribe(data => {
+                if (!data.erro) {
+                  this.client.rua = data.logradouro;
+                  this.client.bairro = data.bairro;
+                  this.client.cidade = data.localidade;
+                  this.client.estado = data.uf;
+                } else {
+                  console.error('CEP não encontrado.');
+                }
+              },
+              error => {
+                console.error('Ocorreu um erro:', error);
+              });
+          }
+    }
+    
 
     deleteSelectedClients() {
         console.log(this.selectedClients)

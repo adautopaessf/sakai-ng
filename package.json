@@ -27,6 +27,7 @@
         "@fullcalendar/daygrid": "^6.0.3",
         "@fullcalendar/interaction": "^6.0.3",
         "@fullcalendar/timegrid": "^6.0.3",
+        "axios": "^1.6.2",
         "chart.js": "^3.3.2",
         "firebase": "^10.7.0",
         "primeflex": "^3.3.1",

@@ -10,7 +10,7 @@ export interface Client {
     bairro?: string;
     numero?: string;
     cidade?: number;
-    cep?: number;
+    cep?: string;
     estado?: string;
     cpf?: number;
     sexo?: Sexos;

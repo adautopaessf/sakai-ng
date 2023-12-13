@@ -108,7 +108,7 @@
                 </div>
                 <div class="field">
                     <label for="cpf">CPF</label>
-                    <p-inputMask id="cep" mask="999.999.999-99" [(ngModel)]="client.cpf" [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.cpf}"></p-inputMask>
+                    <p-inputMask id="cpf" mask="999.999.999-99" [(ngModel)]="client.cpf" [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.cpf}"></p-inputMask>
                     <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.cpf">CPF is required.</small>
                 </div>
                 <div class="field">
@@ -124,32 +124,32 @@
                 </div>
                 <div class="field">
                     <label for="cep">CEP</label>
-                    <p-inputMask id="cep" mask="99.999-999" [(ngModel)]="client.cep" [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.cep}"></p-inputMask>
-                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.cep">Cep is required.</small>
+                    <p-inputMask id="cep" mask="99999-999" [(ngModel)]="client.cep" [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.cep}" (change)="getAdress(client.cep)"></p-inputMask>
+                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.cep">CEP é obrigatório.</small>
                 </div>
+                
                 <div class="field">
                     <label for="rua">Rua</label>
-                    <input type="text" pInputText id="" [(ngModel)]="client.rua" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.rua}"/>
-                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.rua">Rua is required.</small>
+                    <input type="text" pInputText id="rua" [(ngModel)]="client.rua" [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.rua}" />
+                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.rua">Rua é obrigatória.</small>
                 </div>
-                <div class="field">
-                    <label for="numero">Número</label>
-                    <p-inputNumber id="numero" [(ngModel)]="client.numero" mode="decimal" [useGrouping]="false"></p-inputNumber>
-                </div>
+                
                 <div class="field">
                     <label for="bairro">Bairro</label>
-                    <input type="text" pInputText id="bairro" [(ngModel)]="client.bairro" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.bairro}"/>
-                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.bairro">Bairro is required.</small>
+                    <input type="text" pInputText id="bairro" [(ngModel)]="client.bairro" [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.bairro}" />
+                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.bairro">Bairro é obrigatório.</small>
                 </div>
+                
                 <div class="field">
                     <label for="cidade">Cidade</label>
-                    <input type="text" pInputText id="cidade" [(ngModel)]="client.cidade" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.cidade}"/>
-                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.cidade">Cidade is required.</small>
+                    <input type="text" pInputText id="cidade" [(ngModel)]="client.cidade" [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.cidade}" />
+                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.cidade">Cidade é obrigatória.</small>
                 </div>
+                
                 <div class="field">
                     <label for="estado">Estado</label>
-                    <input type="text" pInputText id="estado" [(ngModel)]="client.estado" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.estado}"/>
-                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.estado">Estado is required.</small>
+                    <input type="text" pInputText id="estado" [(ngModel)]="client.estado" [ngClass]="{'ng-invalid ng-dirty' : submitted && !client.estado}" />
+                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !client.estado">Estado é obrigatório.</small>
                 </div>
                 <div class="field">
                     <label for="telefone">Telefone</label>
